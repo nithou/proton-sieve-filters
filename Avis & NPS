@@ -1,9 +1,0 @@
-require ["include", "environment", "variables", "relational", "comparator-i;ascii-numeric", "spamtest", "imap4flags", "vnd.proton.expire","fileinto"];
-
-if header :comparator "i;unicode-casemap" :contains "subject" ["votre avis nous intéresse","avoir votre avis","Que pensez-vous de","Votre avis sur","donner votre avis","Votre avis en","Qu'en pensez-vous","Suite à votre visite","Enquête de satisfaction","Partagez-nous votre expérience","Suite à votre achat","Êtes-vous satisfait","Qu'avez-vous pensé","comment s'est passé","Etes-vous satisfait"] 
-{
-    fileinto "trash";
-    expire "day" "1";
-	addflag "\\Seen";
-	stop;
-}
